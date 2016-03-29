@@ -112,7 +112,7 @@ public class DateUtilities {
      * the current locale
      *
      * @param date - a <code>Calendar</code> object
-     * @return a date formatted according to the default date pattern for the
+     * 0@return a date formatted according to the default date pattern for the
      * current locale
      * @throws IllegalArgumentException if date is null
      */

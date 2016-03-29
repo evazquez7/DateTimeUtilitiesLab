@@ -7,7 +7,8 @@ package student.lab;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-
+import java.time.LocalDateTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
@@ -17,18 +18,23 @@ import java.util.Date;
  * @author Emilio
  */
 public class CustomDataUtilities {
-    public static void main(String[] args) {
  
-        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        public LocalDateTime toDateTime(String dateTimeString){
+            DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+            LocalDateTime dateTime = LocalDateTime.parse(dateTimeString, format);
+            return dateTime;
+        }
+        
+        public String toString(Calendar date, String format){
+        DateFormat dateFormat = new SimpleDateFormat(format);
         Date today = Calendar.getInstance().getTime(); 
         String date1 = dateFormat.format(today);
-        System.out.println("Todays Date: " + date1);
         
+            return date1;
+        }
         
-        
-        DateFormat dateFormat2 = new SimpleDateFormat("M/dd/yy hh:mm:ss");
-        Date today2 = Calendar.getInstance().getTime();
-        String date2 = dateFormat2.format(today2);
-        System.out.println("Today's Date 2: " + date2);
-    }
+        public long DateDiffHours(LocalDateTime date1 , LocalDateTime date2) {                
+                Duration diff = Duration.between(date1, date2);
+            return diff.toHours();
+        }
 }
