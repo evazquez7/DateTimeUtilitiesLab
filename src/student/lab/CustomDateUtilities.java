@@ -14,12 +14,25 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- *
+ *This class will be used as a CustomDateUtilities Java 8 API methods. 
+ * This will provide different methods on how to convert a dateTime to String,
+ * a String dateTime to a dateTime object and the time difference between two specific dates.
  * @author Emilio
  */
-public class CustomDataUtilities {
+public class CustomDateUtilities {
  
-        public LocalDateTime toDateTime(String dateTimeString){
+    
+    /**
+     * This method is used to convert a LocalDateTime string to a date object. 
+     * @param dateTimeString
+     * @return a dateTime
+     */
+        public LocalDateTime toDateTime(String dateTimeString) throw IllegalArgumentException {
+            String dateTimeString = null;
+            if (dateTimeString == null){
+                throw new("LocalDateTime is mandatory");
+            }
+            
             DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
             LocalDateTime dateTime = LocalDateTime.parse(dateTimeString, format);
             return dateTime;
