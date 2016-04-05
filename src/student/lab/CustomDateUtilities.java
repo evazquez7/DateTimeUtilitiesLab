@@ -74,7 +74,22 @@ public class CustomDateUtilities {
             return date1;
         }
         
+        /**
+         * This method is used to convert a date object to to a String.
+         * @param date <code>Calender</code>
+         * @return a date string
+         * @throws IllegalArgumentException if date is null
+         */
+         public String toString(Calendar date) throws IllegalArgumentException{
+            if (date == null){
+                throw new IllegalArgumentException ("Error: Calender Date cannot be null");
+            }
+            DateFormat dateFormat = new SimpleDateFormat();
+            Date today = Calendar.getInstance().getTime(); 
+            String date1 = dateFormat.format(today);
         
+            return date1;
+        }
         /**
          * This method finds the difference in hours based on two LocalDateTime's 
          * @param date1 <code>LocalDateTime</code> object

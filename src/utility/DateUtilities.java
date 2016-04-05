@@ -191,7 +191,7 @@ public class DateUtilities {
         SimpleDateFormat sdf = new SimpleDateFormat(pattern);
         strDate = sdf.format(date);
 
-        return strDate;
+         return strDate;
     }
 
     /**
