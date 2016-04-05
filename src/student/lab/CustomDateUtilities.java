@@ -64,9 +64,7 @@ public class CustomDateUtilities {
          * @throws IllegalArgumentException if date or format is null
          */
         public String toString(Calendar date, String format) throws IllegalArgumentException{
-            if (date == null || format == null ){
-                throw new IllegalArgumentException ("Error: Calender Date or Format cannot be null");
-            }
+            
             DateFormat dateFormat = new SimpleDateFormat(format);
             Date today = Calendar.getInstance().getTime(); 
             String date1 = dateFormat.format(today);
@@ -78,12 +76,9 @@ public class CustomDateUtilities {
          * This method is used to convert a date object to to a String.
          * @param date <code>Calender</code>
          * @return a date string
-         * @throws IllegalArgumentException if date is null
+         * @throws IllegalArgumentException if it is invalid 
          */
          public String toString(Calendar date) throws IllegalArgumentException{
-            if (date == null){
-                throw new IllegalArgumentException ("Error: Calender Date cannot be null");
-            }
             DateFormat dateFormat = new SimpleDateFormat();
             Date today = Calendar.getInstance().getTime(); 
             String date1 = dateFormat.format(today);
@@ -95,12 +90,9 @@ public class CustomDateUtilities {
          * @param date1 <code>LocalDateTime</code> object
          * @param date2<code>LocalDateTime</code> object
          * @return the difference in hours
-         * @throws IllegalArgumentException if date1 or date2 are null
+         * @throws IllegalArgumentException if any argument is invalid
          */
         public long DateDiffHours(LocalDateTime date1 , LocalDateTime date2) throws IllegalArgumentException {  
-            if (date1 == null || date2 == null){
-                throw new IllegalArgumentException ("Error: date1 and date2 cannot be null");
-            }
                 Duration diff = Duration.between(date1, date2);
             return diff.toHours();
         }
